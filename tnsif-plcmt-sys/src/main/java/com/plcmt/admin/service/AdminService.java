@@ -1,22 +1,36 @@
 package com.plcmt.admin.service;
-
-
 import java.util.List;
 import com.plcmt.admin.entity.*;
 
+
 public interface AdminService {
 
-    Admin login(String username, String password);
 
-    College approveCollege(Long collegeId);
+	
+	Admin login(String username, String password);
 
-    List<College> getAllColleges();
+	  College saveCollege(College college);
+	    List<College> getAllColleges();
+	    College approveCollege(Long id);
 
-    Placement addPlacement(Placement placement);
-   
-    void deletePlacement(Long id);
+	    Student saveStudent(Student student);
+	    List<Student> getAllStudents();
+	    void deleteStudent(Long id);
+	    
+	    
 
-    List<Placement> getAllPlacements();
+	    Placement savePlacement(Placement placement);
+		Placement addPlacement(Placement placement);
+	    List<Placement> getAllPlacements();
+	    void deletePlacement(Long id);
 
-    List<Student> getAllStudents();
-}
+	    long getStudentCount();
+	    long getCollegeCount();
+	    long getPlacementCount();
+
+		Student approveStudent(Long id);
+
+		Student blockStudent(Long id);
+		}
+		
+

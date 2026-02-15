@@ -1,0 +1,70 @@
+.college-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.title {
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+
+.search-box {
+  margin-bottom: 20px;
+}
+
+.search-box input {
+  width: 300px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.college-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+}
+
+.college-table th,
+.college-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.college-table th {
+  background-color: #34495e;
+  color: white;
+}
+
+.status {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.status.approved {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.status.pending {
+  background-color: #e67e22;
+  color: white;
+}
+
+.approve-btn {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 4px;
+  background-color: #3498db;
+  color: white;
+  cursor: pointer;
+}
+
+.approve-btn:hover {
+  background-color: #2980b9;
+}

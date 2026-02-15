@@ -14,6 +14,7 @@ public class Student {
     private String name;
     private String qualification;
     private int year;
+    private boolean approved;
 
     public Long getId() {
         return id;
@@ -41,6 +42,14 @@ public class Student {
 
     public int getYear() {
         return year;
+    }
+    
+    public boolean isApproved() {
+        return approved;
+    }
+
+    public void setApproved(boolean approved) {
+        this.approved = approved;
     }
 
     public void setYear(int year) {

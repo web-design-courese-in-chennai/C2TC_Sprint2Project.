@@ -1,6 +1,6 @@
 package com.plcmt.admin.service;
 
-
+import org.springframework.stereotype.Service;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
@@ -8,7 +8,8 @@ import com.plcmt.admin.entity.*;
 import com.plcmt.admin.repository.*;
 
 @Service
-public class AdminServiceImpl implements AdminService {
+
+public  class AdminServiceImpl implements AdminService {
 
     private final AdminRepository adminRepository;
     private final CollegeRepository collegeRepository;
@@ -65,4 +66,59 @@ public class AdminServiceImpl implements AdminService {
     public List<Student> getAllStudents() {
         return studentRepository.findAll();
     }
+
+	@Override
+	public College saveCollege(College college) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Student saveStudent(Student student) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+    @Override
+    public Student approveStudent(Long id) {
+	    Student s = studentRepository.findById(id).orElseThrow();
+	    s.setApproved(true);
+	    return studentRepository.save(s);
+	}
+
+    @Override
+	public Student blockStudent(Long id) {
+	    Student s = studentRepository.findById(id).orElseThrow();
+	    s.setApproved(false);
+	    return studentRepository.save(s);
+	}
+
+	@Override
+	public void deleteStudent(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Placement savePlacement(Placement placement) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public long getStudentCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public long getCollegeCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public long getPlacementCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

@@ -1,0 +1,52 @@
+<div class="college-container">
+
+  <h1 class="title">Placement Management System</h1>
+
+  <div class="search-box">
+    <input
+      type="text"
+      placeholder="Search college by name..."
+      [(ngModel)]="searchText"
+      (input)="searchCollege()"
+    />
+  </div>
+
+  <table class="college-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>College Name</th>
+        <th>Location</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let c of filteredColleges">
+        <td>{{ c.id }}</td>
+        <td>{{ c.collegeName }}</td>
+        <td>{{ c.location }}</td>
+        <td>
+          <span
+            class="status"
+            [class.approved]="c.approved"
+            [class.pending]="!c.approved"
+          >
+            {{ c.approved ? 'Approved' : 'Pending' }}
+          </span>
+        </td>
+        <td>
+          <button
+            class="approve-btn"
+            *ngIf="!c.approved"
+            (click)="approveCollege(c.id)"
+          >
+            Approve
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

@@ -10,6 +10,8 @@ import com.plcmt.admin.service.AdminService;
 
 @RestController     //handle REST API
 @RequestMapping("/admin")   //maps URL
+
+@CrossOrigin(origins = "http://localhost:4200")
 public class AdminController {
 
     private final AdminService adminService;
@@ -18,47 +20,73 @@ public class AdminController {
         this.adminService = adminService;
     }
 
-    @PostMapping("/login") 
-    public Admin login(@RequestParam String username,
-                       @RequestParam String password) {
-        return adminService.login(username, password);
+    @PostMapping("/login")
+    public Admin login(@RequestBody Admin admin) {
+        return adminService.login(admin.getUsername(), admin.getPassword());
     }
-   
 
-    @PutMapping("/approve-college/{id}")
-    public College approveCollege(@PathVariable Long id) {
-        return adminService.approveCollege(id);
+    @PostMapping("/college")
+    public College addCollege(@RequestBody College c) {
+        return adminService.saveCollege(c);
     }
 
     @GetMapping("/colleges")
-    public List<College> getAllColleges() {
+    public List<College> colleges() {
         return adminService.getAllColleges();
     }
 
+    @PutMapping("/college/approve/{id}")
+    public College approve(@PathVariable Long id) {
+        return adminService.approveCollege(id);
+    }
+
+    @PostMapping("/student")
+    public Student addStudent(@RequestBody Student s) {
+        return adminService.saveStudent(s);
+    }
+
+    @GetMapping("/students")
+    public List<Student> students() {
+        return adminService.getAllStudents();
+    }
+    
+    @PutMapping("/student/approve/{id}")
+    public Student approveStudent(@PathVariable Long id) {
+        return adminService.approveStudent(id);
+    }
+
+    @PutMapping("/student/block/{id}")
+    public Student blockStudent(@PathVariable Long id) {
+        return adminService.blockStudent(id);
+    }
+
+
+    @DeleteMapping("/student/{id}")
+    public void deleteStudent(@PathVariable Long id) {
+        adminService.deleteStudent(id);
+    }
+
     @PostMapping("/placement")
-    public Placement addPlacement(@RequestBody Placement placement) {
-        return adminService.addPlacement(placement);
+    public Placement addPlacement(@RequestBody Placement p) {
+        return adminService.savePlacement(p);
     }
 
     @GetMapping("/placements")
-    public List<Placement> getAllPlacements() {
+    public List<Placement> placements() {
         return adminService.getAllPlacements();
-    }
-    
-    @PutMapping("/placement/{id}")
-    public Placement updatePlacement(@PathVariable Long id,
-                                     @RequestBody Placement placement) {
-        placement.setId(id);
-        return adminService.addPlacement(placement);
     }
 
     @DeleteMapping("/placement/{id}")
-    public String deletePlacement(@PathVariable Long id) {
+    public void deletePlacement(@PathVariable Long id) {
         adminService.deletePlacement(id);
-        return "Placement deleted successfully";
     }
-    @GetMapping("/students")
-    public List<Student> getAllStudents() {
-        return adminService.getAllStudents();
-    }
+
+    @GetMapping("/count/students")
+    public long studentCount() { return adminService.getStudentCount(); }
+
+    @GetMapping("/count/colleges")
+    public long collegeCount() { return adminService.getCollegeCount(); }
+
+    @GetMapping("/count/placements")
+    public long placementCount() { return adminService.getPlacementCount(); }
 }

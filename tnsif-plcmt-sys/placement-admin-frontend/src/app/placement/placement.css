@@ -1,0 +1,31 @@
+.crud-page {
+  padding: 30px;
+}
+
+.actions button {
+  margin-right: 10px;
+  padding: 8px 15px;
+  border: none;
+  background: #1cc88a;
+  color: white;
+  border-radius: 5px;
+}
+
+.crud-form {
+  margin: 20px 0;
+}
+
+.crud-form input {
+  margin-right: 10px;
+  padding: 8px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}

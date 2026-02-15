@@ -1,0 +1,43 @@
+<div class="page">
+
+  <h2>Placement Management System</h2>
+  <h3>Student Monitoring</h3>
+
+  <input
+    type="text"
+    placeholder="Search student by name"
+    [(ngModel)]="searchText"
+    (input)="searchStudent()"
+    class="search"
+  />
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Qualificationn</th>
+        <th>Approved</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let s of filteredStudents">
+        <td>{{ s.id }}</td>
+        <td>{{ s.name }}</td>
+        <td>{{ s.qualification }}</td>
+        <td>
+  <button (click)="approve(s.id)">Approve</button>
+  <button (click)="block(s.id)">Block</button>
+</td>
+        <td>
+          <span [class.approved]="s.approved"
+                [class.pending]="!s.approved">
+            {{ s.approved ? 'Approved' : 'Pending' }}
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
