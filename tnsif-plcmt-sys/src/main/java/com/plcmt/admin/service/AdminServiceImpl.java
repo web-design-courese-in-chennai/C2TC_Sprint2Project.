@@ -9,7 +9,7 @@ import com.plcmt.admin.repository.*;
 
 @Service
 
-public  class AdminServiceImpl implements AdminService {
+public class AdminServiceImpl implements AdminService {
 
     private final AdminRepository adminRepository;
     private final CollegeRepository collegeRepository;
@@ -61,6 +61,13 @@ public  class AdminServiceImpl implements AdminService {
     public List<Placement> getAllPlacements() {
         return placementRepository.findAll();
     }
+    
+    @Override
+    public Placement approvePlacement(Long id) {
+        Placement p = placementRepository.findById(id).orElseThrow();
+        p.setApproved(true);
+        return placementRepository.save(p);
+    }
 
     @Override
     public List<Student> getAllStudents() {
@@ -97,6 +104,15 @@ public  class AdminServiceImpl implements AdminService {
 		// TODO Auto-generated method stub
 		
 	}
+	  @Override
+	    public List<Student> getPendingStudents() {
+	        return studentRepository.findByApproved(false);
+	    }
+
+	    @Override
+	    public List<Student> getApprovedStudents() {
+	        return studentRepository.findByApproved(true);
+	    }
 
 	@Override
 	public Placement savePlacement(Placement placement) {

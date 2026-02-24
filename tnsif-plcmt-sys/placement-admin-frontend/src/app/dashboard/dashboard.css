@@ -7,6 +7,7 @@
 .dashboard-container {
   display: flex;
   justify-content: center;
+
   gap: 30px;
   flex-wrap: wrap;
 }
@@ -15,7 +16,7 @@
   width: 260px;
   padding: 25px;
   border-radius: 12px;
-  background: #ffffff;
+  background: #e4c7c7;
   box-shadow: 0 6px 15px rgba(0,0,0,0.1);
   text-align: center;
   cursor: pointer;

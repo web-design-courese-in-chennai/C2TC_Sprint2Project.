@@ -16,6 +16,8 @@ public class Placement {
     private String qualification;
     private int year;
     private LocalDate date;
+    
+    private boolean approved;
 
     public Long getId() {
         return id;
@@ -56,4 +58,14 @@ public class Placement {
     public void setDate(LocalDate date) {
         this.date = date;
     }
+
+	public boolean isApproved() {
+		return approved;
+	}
+
+	public void setApproved(boolean approved) {
+		this.approved = approved;
+	}
+
+	
 }

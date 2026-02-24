@@ -42,3 +42,166 @@ th, td {
 th {
   background-color: #f1f5f9;
 }
+
+/* ===== Global Page Background ===== */
+.page {
+  min-height: 100vh;
+  padding: 25px;
+  background: #f4f6f9;   /* light admin background */
+}
+
+/* ===== Card Layout ===== */
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Page Headings ===== */
+.page h2 {
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+/* ===== Tables ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th {
+  background: #f0f2f5;
+  padding: 10px;
+  text-align: left;
+}
+
+table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* ===== Buttons ===== */
+button {
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.approve-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.block-btn,
+.delete-btn {
+  background-color: #e53935;
+  color: white;
+}
+/* ================= HEADER ================= */
+
+.header {
+  position: sticky;
+  top: 0;
+  background: #2563eb;
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.theme-btn {
+  background: white;
+  color: #2563eb;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* ================= PAGE LAYOUT ================= */
+
+.page {
+  min-height: 100vh;
+  background: #f4f6fa;
+  padding: 30px;
+}
+
+/* ================= CARD ================= */
+
+.card {
+  background: white;
+  max-width: 1100px;
+  margin: auto;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* ================= TABLE ================= */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background: #f1f5f9;
+  text-align: left;
+  padding: 10px;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.approve-btn {
+  background: #16a34a;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ================= DARK MODE ================= */
+
+.dark-theme {
+  background: #0f172a;
+}
+
+.dark-theme .page {
+  background: #0f172a;
+}
+
+.dark-theme .card {
+  background: #1e293b;
+  color: #e5e7eb;
+}
+
+.dark-theme th {
+  background: #334155;
+}
+
+.dark-theme td {
+  border-bottom: 1px solid #475569;
+}
+
+.dark-theme .header {
+  background: #020617;
+}
+
+.dark-theme .theme-btn {
+  background: #334155;
+  color: white;
+}

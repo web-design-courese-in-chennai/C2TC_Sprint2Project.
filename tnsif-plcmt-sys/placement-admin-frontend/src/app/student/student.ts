@@ -7,12 +7,14 @@ import { AdminService } from '../services/admin.service';
   selector: 'app-student',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './student.html',
-  styleUrls: ['./student.css']
+  templateUrl: './student.html'
 })
 export class StudentComponent implements OnInit {
 
-  students: any[] = [];
+  students: any[] = [
+    { id: 1, Name: 'Divya', Qualification: 'IT', status: 'Pending' },
+    { id: 2, Name: 'Karthi', Qualification: 'CSC', status: 'Approved' }
+  ];
   filteredStudents: any[] = [];
   searchText: string = '';
 
@@ -30,8 +32,23 @@ export class StudentComponent implements OnInit {
   }
 
   searchStudent() {
+    const text = this.searchText.toLowerCase();
     this.filteredStudents = this.students.filter(s =>
-      s.name?.toLowerCase().includes(this.searchText.toLowerCase())
+      s.name.toLowerCase().includes(text) ||
+      s.qualification.toLowerCase().includes(text) ||
+      String(s.year).includes(text)
     );
+  }
+
+  approve(id: number) {
+    this.adminService.approveStudent(id).subscribe(() => {
+      this.loadStudents();
+    });
+  }
+
+  block(id: number) {
+    this.adminService.blockStudent(id).subscribe(() => {
+      this.loadStudents();
+    });
   }
 }

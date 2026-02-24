@@ -15,6 +15,9 @@ public interface AdminService {
 
 	    Student saveStudent(Student student);
 	    List<Student> getAllStudents();
+	    
+
+	    List<Student> getApprovedStudents();
 	    void deleteStudent(Long id);
 	    
 	    
@@ -31,6 +34,10 @@ public interface AdminService {
 		Student approveStudent(Long id);
 
 		Student blockStudent(Long id);
+
+		List<Student> getPendingStudents();
+
+		Placement approvePlacement(Long id);
 		}
 		
 

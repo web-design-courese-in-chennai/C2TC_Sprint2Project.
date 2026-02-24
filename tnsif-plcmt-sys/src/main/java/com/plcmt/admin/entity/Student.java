@@ -14,6 +14,8 @@ public class Student {
     private String name;
     private String qualification;
     private int year;
+    private String email;
+    @Column(nullable=false)
     private boolean approved;
 
     public Long getId() {
@@ -55,4 +57,12 @@ public class Student {
     public void setYear(int year) {
         this.year = year;
     }
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 }

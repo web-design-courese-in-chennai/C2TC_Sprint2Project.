@@ -49,9 +49,22 @@ public class AdminController {
     public List<Student> students() {
         return adminService.getAllStudents();
     }
+    @GetMapping("/pending")
+    public List<Student> pendingStudents() {
+        return adminService.getPendingStudents();
+    }
+
+    @GetMapping("/approved")
+    public List<Student> approvedStudents() {
+        return adminService.getApprovedStudents();
+    }
+    @PutMapping("/approve-student/{id}")
+    public Student approveStudent(@PathVariable Long id) {
+        return adminService.approveStudent(id);
+    }
     
     @PutMapping("/student/approve/{id}")
-    public Student approveStudent(@PathVariable Long id) {
+    public Student approveStudents(@PathVariable Long id) {
         return adminService.approveStudent(id);
     }
 
@@ -59,7 +72,6 @@ public class AdminController {
     public Student blockStudent(@PathVariable Long id) {
         return adminService.blockStudent(id);
     }
-
 
     @DeleteMapping("/student/{id}")
     public void deleteStudent(@PathVariable Long id) {
@@ -69,6 +81,11 @@ public class AdminController {
     @PostMapping("/placement")
     public Placement addPlacement(@RequestBody Placement p) {
         return adminService.savePlacement(p);
+    }
+    
+    @PutMapping("/placement/approve/{id}")
+    public Placement approvePlacement(@PathVariable Long id) {
+        return adminService.approvePlacement(id);
     }
 
     @GetMapping("/placements")

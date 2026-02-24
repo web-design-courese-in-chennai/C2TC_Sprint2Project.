@@ -2,6 +2,10 @@
   max-width: 900px;
   margin: 40px auto;
   text-align: center;
+  color: #025fbb;
+  background: linear-gradient(120deg, #4e73df, #1cc88a);
+
+
 }
 
 .search {

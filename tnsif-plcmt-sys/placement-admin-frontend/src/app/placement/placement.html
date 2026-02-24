@@ -1,33 +1,59 @@
-<div class="crud-page">
-  <h2>Manage Records</h2>
+<div class="page">
+  <div class="card">
 
-  <div class="actions">
-    <button>Create</button>
-    <button>Read</button>
-    <button>Update</button>
-    <button>Delete</button>
+<h2 class="title">Placement Management</h2>
+
+<div class="controls">
+  <input
+    type="text"
+    placeholder="Search by company or role"
+    [(ngModel)]="searchText"
+  />
+
+  <select [(ngModel)]="selectedCompany">
+    <option value="">All Companies</option>
+    <option *ngFor="let c of companies" [value]="c">{{ c }}</option>
+  </select>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Company</th>
+      <th>Role</th>
+      <th>Year</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let p of filteredPlacements()">
+      <td>{{ p.id }}</td>
+      <td>{{ p.company }}</td>
+      <td>{{ p.role }}</td>
+      <td>{{ p.year }}</td>
+      <td>
+        <span [ngClass]="p.status.toLowerCase()">
+          {{ p.status }}
+        </span>
+      </td>
+      <td>
+        <button (click)="approve(p.id)" [disabled]="p.status === 'Approved'">
+          Approve
+        </button>
+        <button class="danger" (click)="delete(p.id)">
+          Delete
+        </button>
+      </td>
+    </tr>
+
+    <tr *ngIf="filteredPlacements().length === 0">
+      <td colspan="6" class="empty">No placements found</td>
+    </tr>
+  </tbody>
+</table>
+
   </div>
-
-  <form class="crud-form">
-    <input type="text" placeholder="Enter Name" />
-    <input type="text" placeholder="Enter Details" />
-    <button type="button">Submit</button>
-  </form>
-
-  <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Details</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>Sample</td>
-        <td>Sample Data</td>
-      </tr>
-    </tbody>
-  </table>
 </div>

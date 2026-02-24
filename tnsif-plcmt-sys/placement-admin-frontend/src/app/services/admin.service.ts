@@ -11,11 +11,34 @@ export class AdminService {
 
   constructor(private http: HttpClient) {}
 
+  /* ---------- PLACEMENT ---------- */
+
+getPlacements() {
+  return this.http.get<any[]>(`${this.baseUrl}/placements`);
+}
+
+approvePlacement(id: number) {
+  return this.http.put(`${this.baseUrl}/placement/approve/${id}`, {});
+}
+
+deletePlacement(id: number) {
+  return this.http.delete(`${this.baseUrl}/placement/${id}`);
+}
+
+
    /* ---------- STUDENT ---------- */
 
   getStudents(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/students`);
   }
+
+  approveStudent(id: number) {
+  return this.http.put(`${this.baseUrl}/student/approve/${id}`, {});
+}
+
+blockStudent(id: number) {
+  return this.http.put(`${this.baseUrl}/student/block/${id}`, {});
+}
 
   /* ---------- COLLEGE ---------- */
 

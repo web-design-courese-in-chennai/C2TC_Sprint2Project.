@@ -1,3 +1,12 @@
+.page{
+  
+  display: flex;
+  
+  background: linear-gradient(120deg, #4e73df, #1cc88a);
+}
+
+
+
 .login-wrapper {
   height: 100vh;
   display: flex;
